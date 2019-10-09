@@ -1,0 +1,23 @@
+#recipe-list {
+    background-color: pink;
+    height: 80px;
+}
+
+/* Recipe Description Styling  */
+
+#recipe-desc {
+    position: relative;
+    top: 50px;
+}
+
+#recipe-title {
+    background-color: blueviolet;
+    margin: 0;
+}
+#recipe-body {
+    background-color: palevioletred;
+    height: 300px;
+}
+#recipe-add {
+    background-color: blueviolet;
+}
