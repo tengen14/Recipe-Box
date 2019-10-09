@@ -1,6 +1,6 @@
 export const recipeData = [
   {
-    recipe: "Macaroni & Cheese",
+    title: "Macaroni & Cheese",
     ingredients: [
       "4 tablespoons unsalted butter",
       "divided ¾ cup panko (Japanese breadcrumbs)",
@@ -27,7 +27,7 @@ export const recipeData = [
     ]
   },
   {
-    recipe: "Chicken Noodle Soup",
+    title: "Chicken Noodle Soup",
     ingredients: [
       "1 tablespoon kosher salt",
       "10 whole black peppercorns",
@@ -50,7 +50,7 @@ export const recipeData = [
     ]
   },
   {
-    recipe: "Banana Bread",
+    title: "Banana Bread",
     ingredients: [
       "Nonstick vegetable oil spray",
       "1½ cups all-purpose flour",
@@ -72,7 +72,7 @@ export const recipeData = [
     ]
   },
   {
-    recipe: "Mussels",
+    title: "Mussels",
     ingredients: [
       "3 tablespoons olive oil",
       "6 small shallots, thinly sliced",

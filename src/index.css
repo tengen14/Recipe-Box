@@ -1,6 +1,10 @@
 #recipe-list {
     background-color: pink;
-    height: 80px;
+    height: 100px;
+}
+
+li {
+    font-size: 40px;
 }
 
 /* Recipe Description Styling  */
