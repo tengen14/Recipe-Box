@@ -1,5 +1,6 @@
 export const recipeData = [
   {
+    id: 1,  
     title: "Macaroni & Cheese",
     ingredients: [
       "4 tablespoons unsalted butter",
@@ -27,6 +28,7 @@ export const recipeData = [
     ]
   },
   {
+    id: 2,  
     title: "Chicken Noodle Soup",
     ingredients: [
       "1 tablespoon kosher salt",
@@ -50,6 +52,7 @@ export const recipeData = [
     ]
   },
   {
+    id: 3,  
     title: "Banana Bread",
     ingredients: [
       "Nonstick vegetable oil spray",
@@ -64,7 +67,7 @@ export const recipeData = [
       "½ cup chopped bittersweet or semisweet chocolate (optional)",
       "½ cup chopped walnuts (optional)"
     ],
-    description: [
+    directions: [
       'Preheat oven to 350°. Lightly coat 8½x4½" loaf pan with nonstick spray and line with parchment paper, leaving a generous overhang on long sides. Whisk flour, baking soda, and salt in a medium bowl.',
       "Using an electric mixer on medium-high speed, beat brown sugar, mascarpone, and butter in a large bowl until light and fluffy, about 4 minutes. Add eggs one at a time, beating to blend after each addition and scraping down sides and bottom of bowl as needed.",
       "Reduce speed to low, add flour mixture, and mix until just combined. Add bananas and mix just until combined. Fold in chocolate and/or walnuts, if using. Scrape batter into prepared pan; smooth top.",
@@ -72,6 +75,7 @@ export const recipeData = [
     ]
   },
   {
+    id: 4,  
     title: "Mussels",
     ingredients: [
       "3 tablespoons olive oil",
@@ -84,7 +88,7 @@ export const recipeData = [
       "2 tablespoons chopped fresh flat-leaf parsley plus more for serving",
       "Kosher salt, freshly ground pepper"
     ],
-    description: [
+    directions: [
       "Heat oil in a large heavy pot over medium heat. Add shallots and garlic and cook, stirring occasionally, until softened not browned, about 5 minutes. Add wine and bring to a boil. Reduce heat and simmer until liquid is reduced by half, 3-4 minutes. Add mussels, cover, and cook, shaking pot occasionally, until shells open (discard any that do not open), 10–12 minutes. Using a slotted spoon, transfer mussels to shallow bowls.",
       "Add butter to cooking liquid and stir until melted. Add 2 Tbsp. dill and 2 Tbsp. parsley; season with salt and pepper. Ladle cooking liquid over mussels and top with more herbs."
     ]
