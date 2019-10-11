@@ -5,7 +5,7 @@ class RecipeList extends React.Component {
   renderList = () => {
     return this.props.recipes.map(recipe => {
       return (
-        <li onClick={this.props.recipeSelect} key={recipe.id}>
+        <li onClick={() => this.props.recipeSelect(recipe)} key={recipe.id}>
           {recipe.title}
         </li>
       );

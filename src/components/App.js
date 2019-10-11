@@ -5,10 +5,21 @@ import { recipeData } from "../seed";
 import "../index.css";
 
 class App extends React.Component {
-  state = { recipes: recipeData };
+  state = { recipes: recipeData, selected_recipe: {} };
 
-  recipeSelect = () => {
-    console.log("clicked");
+  // Set default selectedRecipe to Macaroni & Cheese
+  componentDidMount() {
+    this.setState({
+      selected_recipe: {
+        title: this.state.recipes[0].title,
+        ingredients: this.state.recipes[0].ingredients,
+        directions: this.state.recipes[0].directions
+      }
+    });
+  }
+
+  recipeSelect = recipe => {
+    this.setState({ selected_recipe: recipe });
   };
 
   render() {
@@ -19,7 +30,10 @@ class App extends React.Component {
           recipes={this.state.recipes}
           recipeSelect={this.recipeSelect}
         />
-        <RecipeDesc recipes={this.state.recipes} />
+        <RecipeDesc
+          recipes={this.state.recipes}
+          selectedRecipe={this.state.selected_recipe}
+        />
       </div>
     );
   }
