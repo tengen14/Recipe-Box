@@ -5,7 +5,7 @@ import { recipeData } from "../seed";
 import "../index.css";
 
 class App extends React.Component {
-  state = { recipes: recipeData, selected_recipe: {} };
+  state = { recipes: recipeData, selected_recipe: '' };
 
   // Set default selectedRecipe to Macaroni & Cheese
   componentDidMount() {
