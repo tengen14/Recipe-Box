@@ -13,8 +13,8 @@ export const getRecipes = () => async dispatch => {
     dispatch({ type: GET_RECIPES, payload: response.data });
 };
 
-export const getRecipe = () => async dispatch => {
-    const response = await recipes.get(`/recipes/${id}`);
+// export const getRecipe = () => async dispatch => {
+//     const response = await recipes.get(`/recipes/${id}`);
 
-    dispatch({ type: GET_RECIPE, payload: response.data });
-};
+//     dispatch({ type: GET_RECIPE, payload: response.data });
+// };
