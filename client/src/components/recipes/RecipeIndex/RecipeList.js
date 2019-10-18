@@ -1,14 +1,19 @@
+import _ from "lodash";
 import React from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { getRecipe } from "../../../actions";
 import "../../../index";
 
 class RecipeList extends React.Component {
   renderList = () => {
-    console.log(this.props.recipes);
     return this.props.recipes.map(recipe => {
       return (
-        <li onClick={() => this.props.recipeSelect(recipe)} key={recipe.id}>
-          {recipe.title}
-        </li>
+        <Link to={`/recipes/${recipe.id}`} key={recipe.id}>
+          <li onClick={() => this.props.getRecipe(recipe.id)}>
+            {recipe.title}
+          </li>
+        </Link>
       );
     });
   };
@@ -22,4 +27,12 @@ class RecipeList extends React.Component {
   }
 }
 
-export default RecipeList;
+const mapStateToProps = (state, ownProps) => {
+  return {  };
+};
+// what should i do with mapStateToProps, it's already functioning in RecipeIndex
+
+export default connect(
+  mapStateToProps,
+  { getRecipe }
+)(RecipeList);
