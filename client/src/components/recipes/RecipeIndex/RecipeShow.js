@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../../../index";
 
 class RecipeShow extends React.Component {
@@ -31,10 +32,10 @@ class RecipeShow extends React.Component {
       <div id="recipe-desc" className="container">
         <h2 id="recipe-title">{this.listTitle()}</h2>
         <div id="recipe-body" className="overflow-auto">
-          <ol>{this.listIngredients()}</ol>
-          <ul>{this.listDirections()}</ul>
+          <ul>{this.listIngredients()}</ul>
+          <ol>{this.listDirections()}</ol>
         </div>
-        <h2 id="recipe-add">Recipe Add</h2>
+        <h2 id="recipe-add"><Link to="/recipes/new"><i className="fas fa-plus"></i></Link></h2>
       </div>
     );
   }

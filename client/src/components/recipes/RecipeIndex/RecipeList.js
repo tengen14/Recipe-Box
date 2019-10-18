@@ -1,4 +1,3 @@
-import _ from "lodash";
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -30,7 +29,7 @@ class RecipeList extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return {  };
 };
-// what should i do with mapStateToProps, it's already functioning in RecipeIndex
+// what should I do with mapStateToProps, it's already functioning in RecipeIndex
 
 export default connect(
   mapStateToProps,

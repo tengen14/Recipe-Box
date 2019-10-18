@@ -1,18 +1,20 @@
 import React from "react";
-import { Router, Route } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import RecipeIndex from "./recipes/RecipeIndex";
+import RecipeCreate from "./recipes/RecipeCreate";
 import history from "../history";
 import "../index.css";
 
 class App extends React.Component {
   render() {
     return (
-      <div className="container">
+      <div>
         <Router history={history}>
-          <div>
-            <Route path="/" exact component={RecipeIndex} />
-            <Route path="/recipes/:id" component={RecipeIndex} />
-          </div>
+          <Switch>
+            <Route exact path="/" component={RecipeIndex} />
+            <Route exact path="/recipes/new" component={RecipeCreate} />
+            <Route exact path="/recipes/:id" component={RecipeIndex} />
+          </Switch>
         </Router>
       </div>
     );
