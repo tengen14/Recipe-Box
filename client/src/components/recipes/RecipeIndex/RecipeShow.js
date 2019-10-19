@@ -29,9 +29,9 @@ class RecipeShow extends React.Component {
 
   render() {
     return (
-      <div id="recipe-desc" className="container">
+      <div id="recipe-desc" className="ui container">
         <h2 id="recipe-title">{this.listTitle()}</h2>
-        <div id="recipe-body" className="overflow-auto">
+        <div id="recipe-body">
           <ul>{this.listIngredients()}</ul>
           <ol>{this.listDirections()}</ol>
         </div>

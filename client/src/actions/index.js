@@ -1,4 +1,5 @@
 import recipes from "../apis/recipes";
+import history from "../history";
 import {
     GET_RECIPE,
     GET_RECIPES,
@@ -18,3 +19,10 @@ export const getRecipe = id => async dispatch => {
 
     dispatch({ type: GET_RECIPE, payload: response.data });
 };
+
+export const createRecipe = formValues => async (dispatch, getState) => {
+    const response = await recipes.post("/recipes", { ...formValues });
+
+    dispatch({ type: CREATE_RECIPE, payload: response.data });
+    history.push("/");
+}

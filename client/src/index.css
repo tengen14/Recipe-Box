@@ -1,10 +1,12 @@
 #recipe-list {
     background-color: pink;
     height: 100px;
+    overflow: scroll;
 }
 
 li {
-    font-size: 20px;
+    font-size: 30px;
+    line-height: 50px;
 }
 
 /* Recipe Description Styling  */
@@ -21,6 +23,7 @@ li {
 #recipe-body {
     background-color: palevioletred;
     height: 300px;
+    overflow: scroll;
 }
 #recipe-add {
     background-color: blueviolet;

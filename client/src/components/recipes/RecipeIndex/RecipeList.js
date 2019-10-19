@@ -19,7 +19,7 @@ class RecipeList extends React.Component {
 
   render() {
     return (
-      <div id="recipe-list" className="container overflow-auto">
+      <div id="recipe-list" className="ui container">
         <ul>{this.renderList()}</ul>
       </div>
     );

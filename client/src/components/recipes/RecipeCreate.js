@@ -1,9 +1,17 @@
-import React from 'react';
+import React from "react";
+import { connect } from "react-redux";
+import { createStream } from "../../actions";
+import Modal from "../Modal";
 
 class RecipeCreate extends React.Component {
-    render() {
-        return <h1>Recipe New Recipe New Recipe New Recipe New Recipe New Recipe New Recipe New Recipe New Recipe New Recipe New Recipe New Recipe New Recipe New Recipe New Recipe New Recipe New Recipe New Recipe New Recipe New Recipe New Recipe New Recipe New Recipe New Recipe New Recipe New Recipe New Recipe New Recipe New Recipe New Recipe New</h1>
-    }
+  render() {
+    return (
+      <div>
+        Recipe Create
+        {/* <Modal /> */}
+      </div>
+    );
+  }
 }
 
 export default RecipeCreate;

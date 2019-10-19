@@ -3,32 +3,17 @@ import ReactDOM from "react-dom";
 
 const Modal = () => {
   return ReactDOM.createPortal(
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-      Launch demo modal
-    </button>
-    
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
+    <div className="ui dimmer modals visible active">
+      <div
+        onClick={e => e.stopPropagation()}
+        className="ui standard modal visible active"
+      >
+        <div className="header">Hello</div>
+        <div className="content">lorem ipsum</div>
+        <div className="actions">yes no</div>
       </div>
     </div>,
-    document.querySelector("#modal");
+    document.querySelector("#modal")
   );
 };
 
