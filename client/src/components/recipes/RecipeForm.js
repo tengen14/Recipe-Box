@@ -1,71 +1,167 @@
 import React from "react";
-import { Field, reduxForm } from "redux-form";
+import { Field, FieldArray, reduxForm } from "redux-form";
 
 class RecipeForm extends React.Component {
-  renderError = ({ error, touched }) => {
-    if (error && touched) {
-      return (
-        <div className="ui error message">
-          <div className="header">{error}</div>
-        </div>
-      );
-    }
-  };
-
-  renderInput = ({ input, label, meta }) => {
+  renderField = ({ input, label, type, meta: { touched, error } }) => {
     return (
-      <div className={`field ${meta.error && meta.touched ? "error" : ""}`}>
+      <div>
         <label>{label}</label>
-        <input {...input} autoComplete="off" />
-        {this.renderError(meta)}
+        <div>
+          <input {...input} type={type} placeholder={label} />
+          {touched && error && <span>{error}</span>}
+        </div>
       </div>
     );
   };
 
-  onSubmit = formValues => {
-    this.props.onSubmit(formValues);
+  renderHobbies = ({ fields, meta: { error } }) => {
+    return (
+      <ul>
+        <li>
+          <button type="button" onClick={() => fields.push()}>
+            Add Hobby
+          </button>
+        </li>
+        {fields.map((hobby, index) => (
+          <li key={index}>
+            <button
+              type="button"
+              title="Remove Hobby"
+              onClick={() => fields.remove(index)}
+            />
+            <Field
+              name={hobby}
+              type="text"
+              component={this.renderField()}
+              label={`Hobby #${index + 1}`}
+            />
+          </li>
+        ))}
+        {error && <li className="error">{error}</li>}
+      </ul>
+    );
+  };
+
+  renderMembers = ({ fields, meta: { error, submitFailed } }) => {
+    return (
+      <ul>
+        <li>
+          <button type="button" onClick={() => fields.push({})}>
+            Add Member
+          </button>
+          {submitFailed && error && <span>{error}</span>}
+        </li>
+        {fields.map((member, index) => (
+          <li key={index}>
+            <button
+              type="button"
+              title="Remove Member"
+              onClick={() => fields.remove(index)}
+            />
+            <h4>Member #{index + 1}</h4>
+            <Field
+              name={`${member}.firstName`}
+              type="text"
+              component={this.renderField()}
+              label="First Name"
+            />
+            <Field
+              name={`${member}.lastName`}
+              type="text"
+              component={this.renderField()}
+              label="Last Name"
+            />
+            <FieldArray name={`${member}.hobbies`} component={this.renderHobbies()} />
+          </li>
+        ))}
+      </ul>
+    );
+  };
+
+  FieldArraysForm = props => {
+    const { handleSubmit, pristine, reset, submitting } = props;
+    return (
+      <form onSubmit={handleSubmit}>
+        <Field
+          name="clubName"
+          type="text"
+          component={this.renderField()}
+          label="Club Name"
+        />
+        <FieldArray name="members" component={this.renderMembers()} />
+        <div>
+          <button type="submit" disabled={submitting}>
+            Submit
+          </button>
+          <button
+            type="button"
+            disabled={pristine || submitting}
+            onClick={reset}
+          >
+            Clear Values
+          </button>
+        </div>
+      </form>
+    );
   };
 
   render() {
     return (
-      <form
-        onSubmit={this.props.handleSubmit(this.onSubmit)}
-        className="ui form error"
-      >
-        <Field name="title" component={this.renderInput} label="Enter Title" />
-        <Field
-          name="ingredients"
-          component={this.renderInput}
-          label="Enter Ingredients"
-        />
-        <Field
-          name="directions"
-          component={this.renderInput}
-          label="Enter Directions"
-        />
+      <form>
+        <Field name="title" component={this.renderField} />
         <button className="ui button primary">Submit</button>
       </form>
     );
   }
 }
 
-const validate = formValues => {
-  const error = {};
-
-  if (!formValues.title) {
-    errors.title = "You must enter a title";
+const validate = values => {
+  const errors = {};
+  if (!values.clubName) {
+    errors.clubName = "Required";
   }
-
-  if (!formValues.ingredients) {
-    errors.ingredients = "You must enter at least 1 ingredient";
+  if (!values.members || !values.members.length) {
+    errors.members = { _error: "At least one member must be entered" };
+  } else {
+    const membersArrayErrors = [];
+    values.members.forEach((member, memberIndex) => {
+      const memberErrors = {};
+      if (!member || !member.firstName) {
+        memberErrors.firstName = "Required";
+        membersArrayErrors[memberIndex] = memberErrors;
+      }
+      if (!member || !member.lastName) {
+        memberErrors.lastName = "Required";
+        membersArrayErrors[memberIndex] = memberErrors;
+      }
+      if (member && member.hobbies && member.hobbies.length) {
+        const hobbyArrayErrors = [];
+        member.hobbies.forEach((hobby, hobbyIndex) => {
+          if (!hobby || !hobby.length) {
+            hobbyArrayErrors[hobbyIndex] = "Required";
+          }
+        });
+        if (hobbyArrayErrors.length) {
+          memberErrors.hobbies = hobbyArrayErrors;
+          membersArrayErrors[memberIndex] = memberErrors;
+        }
+        if (member.hobbies.length > 5) {
+          if (!memberErrors.hobbies) {
+            memberErrors.hobbies = [];
+          }
+          memberErrors.hobbies._error = "No more than five hobbies allowed";
+          membersArrayErrors[memberIndex] = memberErrors;
+        }
+      }
+    });
+    if (membersArrayErrors.length) {
+      errors.members = membersArrayErrors;
+    }
   }
-
-  if (!formValues.directions) {
-    errors.directions = "You must enter at least 1 direction";
-  }
+  return errors;
 };
 
 export default reduxForm({
   form: "recipeForm",
-  validata
-})(StreamForm);
+  validate
+})(RecipeForm);
