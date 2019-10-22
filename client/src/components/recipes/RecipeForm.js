@@ -1,167 +1,149 @@
 import React from "react";
-import { Field, FieldArray, reduxForm } from "redux-form";
+import { Field, Fields, FieldArray, reduxForm } from "redux-form";
 
 class RecipeForm extends React.Component {
-  renderField = ({ input, label, type, meta: { touched, error } }) => {
+  // The fields object is a "pseudo-array", in that it has many of the same properties and methods as a javascript Array,
+  // providing both reading and writing functionality.
+
+  renderField = field => {
     return (
-      <div>
-        <label>{label}</label>
-        <div>
-          <input {...input} type={type} placeholder={label} />
-          {touched && error && <span>{error}</span>}
-        </div>
+      <div className="input-row">
+        <input {...field.input} type="text" />
+        {field.meta.touched && field.meta.error && (
+          <span className="error">{field.meta.error}</span>
+        )}
       </div>
     );
   };
 
-  renderHobbies = ({ fields, meta: { error } }) => {
+  renderIngredients = ({ fields }) => {
     return (
-      <ul>
-        <li>
-          <button type="button" onClick={() => fields.push()}>
-            Add Hobby
-          </button>
-        </li>
-        {fields.map((hobby, index) => (
-          <li key={index}>
-            <button
-              type="button"
-              title="Remove Hobby"
-              onClick={() => fields.remove(index)}
-            />
+      <div className="custom-field-array-container">
+        {fields.map((code, index) => (
+          <div key={index} className="field-array-item">
             <Field
-              name={hobby}
+              name={code}
               type="text"
-              component={this.renderField()}
-              label={`Hobby #${index + 1}`}
+              component={this.renderField}
+              label={`Discount Code #${index + 1}`}
+              autoFocus
             />
-          </li>
+            <button type="button" onClick={() => fields.remove(index)}>
+              &times;
+            </button>
+          </div>
         ))}
-        {error && <li className="error">{error}</li>}
-      </ul>
+        <button type="button" onClick={() => fields.push()}>
+          Add {!fields.length ? "Discount Code(s)" : "Another Discount Code"}
+        </button>
+      </div>
     );
   };
 
-  renderMembers = ({ fields, meta: { error, submitFailed } }) => {
+  renderDirections = ({ fields }) => {
     return (
-      <ul>
-        <li>
-          <button type="button" onClick={() => fields.push({})}>
-            Add Member
-          </button>
-          {submitFailed && error && <span>{error}</span>}
-        </li>
-        {fields.map((member, index) => (
-          <li key={index}>
-            <button
-              type="button"
-              title="Remove Member"
-              onClick={() => fields.remove(index)}
-            />
-            <h4>Member #{index + 1}</h4>
+      <div className="custom-field-array-container">
+        {fields.map((code, index) => (
+          <div key={index} className="field-array-item">
             <Field
-              name={`${member}.firstName`}
+              name={code}
               type="text"
-              component={this.renderField()}
-              label="First Name"
+              component={this.renderField}
+              label={`Discount Code #${index + 1}`}
+              autoFocus
             />
-            <Field
-              name={`${member}.lastName`}
-              type="text"
-              component={this.renderField()}
-              label="Last Name"
-            />
-            <FieldArray name={`${member}.hobbies`} component={this.renderHobbies()} />
-          </li>
+            <button type="button" onClick={() => fields.remove(index)}>
+              &times;
+            </button>
+          </div>
         ))}
-      </ul>
+        <button type="button" onClick={() => fields.push()}>
+          Add {!fields.length ? "Discount Code(s)" : "Another Discount Code"}
+        </button>
+      </div>
     );
   };
 
-  FieldArraysForm = props => {
-    const { handleSubmit, pristine, reset, submitting } = props;
-    return (
-      <form onSubmit={handleSubmit}>
-        <Field
-          name="clubName"
-          type="text"
-          component={this.renderField()}
-          label="Club Name"
-        />
-        <FieldArray name="members" component={this.renderMembers()} />
-        <div>
-          <button type="submit" disabled={submitting}>
-            Submit
-          </button>
-          <button
-            type="button"
-            disabled={pristine || submitting}
-            onClick={reset}
-          >
-            Clear Values
-          </button>
-        </div>
-      </form>
-    );
+  onSubmit = formValues => {
+    this.props.onSubmit(formValues);
   };
 
   render() {
     return (
-      <form>
-        <Field name="title" component={this.renderField} />
+      <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
+        <div>
+          <label>Recipe Title</label>
+          <div>
+            <Field
+              name="title"
+              component={this.renderField}
+              type="text"
+              placeholder="Recipe Title"
+            />
+          </div>
+        </div>
+
+        <div>
+          <FieldArray name="ingredients" component={this.renderIngredients} />
+        </div>
+
+        <div>
+          <FieldArray name="directions" component={this.renderDirections} />
+        </div>
+
         <button className="ui button primary">Submit</button>
       </form>
     );
   }
 }
 
-const validate = values => {
-  const errors = {};
-  if (!values.clubName) {
-    errors.clubName = "Required";
-  }
-  if (!values.members || !values.members.length) {
-    errors.members = { _error: "At least one member must be entered" };
-  } else {
-    const membersArrayErrors = [];
-    values.members.forEach((member, memberIndex) => {
-      const memberErrors = {};
-      if (!member || !member.firstName) {
-        memberErrors.firstName = "Required";
-        membersArrayErrors[memberIndex] = memberErrors;
-      }
-      if (!member || !member.lastName) {
-        memberErrors.lastName = "Required";
-        membersArrayErrors[memberIndex] = memberErrors;
-      }
-      if (member && member.hobbies && member.hobbies.length) {
-        const hobbyArrayErrors = [];
-        member.hobbies.forEach((hobby, hobbyIndex) => {
-          if (!hobby || !hobby.length) {
-            hobbyArrayErrors[hobbyIndex] = "Required";
-          }
-        });
-        if (hobbyArrayErrors.length) {
-          memberErrors.hobbies = hobbyArrayErrors;
-          membersArrayErrors[memberIndex] = memberErrors;
-        }
-        if (member.hobbies.length > 5) {
-          if (!memberErrors.hobbies) {
-            memberErrors.hobbies = [];
-          }
-          memberErrors.hobbies._error = "No more than five hobbies allowed";
-          membersArrayErrors[memberIndex] = memberErrors;
-        }
-      }
-    });
-    if (membersArrayErrors.length) {
-      errors.members = membersArrayErrors;
-    }
-  }
-  return errors;
-};
+// const validate = values => {
+//   const errors = {};
+//   if (!values.clubName) {
+//     errors.clubName = "Required";
+//   }
+//   if (!values.members || !values.members.length) {
+//     errors.members = { _error: "At least one member must be entered" };
+//   } else {
+//     const membersArrayErrors = [];
+//     values.members.forEach((member, memberIndex) => {
+//       const memberErrors = {};
+//       if (!member || !member.firstName) {
+//         memberErrors.firstName = "Required";
+//         membersArrayErrors[memberIndex] = memberErrors;
+//       }
+//       if (!member || !member.lastName) {
+//         memberErrors.lastName = "Required";
+//         membersArrayErrors[memberIndex] = memberErrors;
+//       }
+//       if (member && member.hobbies && member.hobbies.length) {
+//         const hobbyArrayErrors = [];
+//         member.hobbies.forEach((hobby, hobbyIndex) => {
+//           if (!hobby || !hobby.length) {
+//             hobbyArrayErrors[hobbyIndex] = "Required";
+//           }
+//         });
+//         if (hobbyArrayErrors.length) {
+//           memberErrors.hobbies = hobbyArrayErrors;
+//           membersArrayErrors[memberIndex] = memberErrors;
+//         }
+//         if (member.hobbies.length > 5) {
+//           if (!memberErrors.hobbies) {
+//             memberErrors.hobbies = [];
+//           }
+//           memberErrors.hobbies._error = "No more than five hobbies allowed";
+//           membersArrayErrors[memberIndex] = memberErrors;
+//         }
+//       }
+//     });
+//     if (membersArrayErrors.length) {
+//       errors.members = membersArrayErrors;
+//     }
+//   }
+//   return errors;
+// };
 
 export default reduxForm({
-  form: "recipeForm",
-  validate
+  form: "recipeForm"
+  //   validateds
 })(RecipeForm);

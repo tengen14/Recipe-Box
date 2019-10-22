@@ -12,7 +12,6 @@ class RecipeCreate extends React.Component {
   render() {
     return (
       <div>
-        Recipe Create
         <RecipeForm onSubmit={this.onSubmit} />
         {/* <Modal /> */}
       </div>
