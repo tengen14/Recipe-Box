@@ -10,10 +10,13 @@ class RecipeCreate extends React.Component {
   };
 
   render() {
+    console.log(this.props)
     return (
       <div>
-        <RecipeForm onSubmit={this.onSubmit} />
-        {/* <Modal /> */}
+        <Modal 
+          title="Add Recipe"
+          
+        />
       </div>
     );
   }

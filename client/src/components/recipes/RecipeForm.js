@@ -1,10 +1,7 @@
 import React from "react";
-import { Field, Fields, FieldArray, reduxForm } from "redux-form";
+import { Field, FieldArray, reduxForm } from "redux-form";
 
 class RecipeForm extends React.Component {
-  // The fields object is a "pseudo-array", in that it has many of the same properties and methods as a javascript Array,
-  // providing both reading and writing functionality.
-
   renderField = field => {
     return (
       <div className="input-row">
@@ -25,7 +22,6 @@ class RecipeForm extends React.Component {
               name={code}
               type="text"
               component={this.renderField}
-              label={`Discount Code #${index + 1}`}
               autoFocus
             />
             <button type="button" onClick={() => fields.remove(index)}>
@@ -34,7 +30,7 @@ class RecipeForm extends React.Component {
           </div>
         ))}
         <button type="button" onClick={() => fields.push()}>
-          Add {!fields.length ? "Discount Code(s)" : "Another Discount Code"}
+          Add {!fields.length ? "Ingredient(s)" : "Another Ingredient"}
         </button>
       </div>
     );
@@ -58,7 +54,7 @@ class RecipeForm extends React.Component {
           </div>
         ))}
         <button type="button" onClick={() => fields.push()}>
-          Add {!fields.length ? "Discount Code(s)" : "Another Discount Code"}
+          Add {!fields.length ? "Direction(s)" : "Another Direction"}
         </button>
       </div>
     );
@@ -145,5 +141,8 @@ class RecipeForm extends React.Component {
 
 export default reduxForm({
   form: "recipeForm"
-  //   validateds
+  //   validated
 })(RecipeForm);
+
+// dry up functions
+// validate form
