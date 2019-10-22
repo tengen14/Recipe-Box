@@ -1,10 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import RecipeForm from '../components/recipes/RecipeForm';
+import history from '../history';
 
 const Modal = (props) => {
   return ReactDOM.createPortal(
-    <div className="ui dimmer modals visible active">
+    <div 
+    onClick={() => history.goBack()}
+    className="ui dimmer modals visible active">
       <div
         onClick={e => e.stopPropagation()}
         className="ui standard modal visible active"
