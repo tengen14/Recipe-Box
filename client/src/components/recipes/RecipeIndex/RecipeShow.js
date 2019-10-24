@@ -27,21 +27,43 @@ class RecipeShow extends React.Component {
     }
   };
 
+  editRoute = selectedRecipe => {
+    if (this.props.selectedRecipe) {
+      return (
+        <Link to={`/recipes/edit/${selectedRecipe.id}`}>
+          <i className="fas fa-edit"></i>
+        </Link>
+      );
+    }
+  };
+
   render() {
-    return (
-      <div id="recipe-desc" className="ui container">
-        <h2 id="recipe-title">{this.listTitle()}</h2>
-        <div id="recipe-body">
-          <ul>{this.listIngredients()}</ul>
-          <ol>{this.listDirections()}</ol>
+    if (this.props.selectedRecipe) {
+      return (
+        <div id="recipe-desc" className="ui container">
+          <div id="recipe-title">
+            <h2>{this.listTitle()}</h2>
+            <Link to={`/recipes/edit/${this.props.selectedRecipe.id}`}>
+              <i className="fas fa-edit"></i>
+            </Link>
+          </div>
+          <div id="recipe-body">
+            <ul>{this.listIngredients()}</ul>
+            <ol>{this.listDirections()}</ol>
+          </div>
+          <h2 id="recipe-add">
+            <Link to="/recipes/new">
+              <i className="fas fa-plus"></i>
+            </Link>
+          </h2>
         </div>
-        <h2 id="recipe-add"><Link to="/recipes/new"><i className="fas fa-plus"></i></Link></h2>
-      </div>
-    );
+      );
+    } else {
+      return <div>Loading...</div>;
+    }
   }
 }
 
 export default RecipeShow;
-
 
 // DRY up the code (refactor functions)

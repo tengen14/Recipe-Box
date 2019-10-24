@@ -11,7 +11,7 @@ class RecipeCreate extends React.Component {
   render() {
     return (
       <div>
-        <Modal title="Add Recipe" newSubmit={this.newSubmit} />
+        <Modal title="Add Recipe" newSubmission={this.newSubmission} />
       </div>
     );
   }

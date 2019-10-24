@@ -16,7 +16,7 @@ class RecipeIndex extends React.Component {
     return (
       <div>
         <RecipeList recipes={this.props.recipes} />
-        <RecipeShow selectedRecipe={this.props.selected_recipe} />
+        <RecipeShow selectedRecipe={this.props.selectedRecipe} />
       </div>
     );
   }
@@ -25,7 +25,7 @@ class RecipeIndex extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     recipes: Object.values(state.recipes),
-    selected_recipe: state.recipes[ownProps.match.params.id]
+    selectedRecipe: state.recipes[ownProps.match.params.id]
   };
 };
 
