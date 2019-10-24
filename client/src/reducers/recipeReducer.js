@@ -15,6 +15,8 @@ export default (state = {}, action) => {
       return { ...state, [action.payload.id]: action.payload };
     case CREATE_RECIPE:
       return { ...state, [action.payload.id]: action.payload };
+    case EDIT_RECIPE:
+      return { ...state, [action.payload.id]: action.payload };
     default:
       return state;
   }
