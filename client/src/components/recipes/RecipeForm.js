@@ -61,7 +61,7 @@ class RecipeForm extends React.Component {
   };
 
   onSubmit = formValues => {
-    this.props.newSubmit(formValues);
+    this.props.newSubmission(formValues);
   };
 
   render() {

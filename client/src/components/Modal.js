@@ -15,7 +15,7 @@ const Modal = (props) => {
         <div className="header">{props.title}</div>
         <div className="content">
           <RecipeForm 
-            newSubmit={props.newSubmit}
+            newSubmission={props.newSubmit}
           />
         </div>
       </div>

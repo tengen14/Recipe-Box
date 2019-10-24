@@ -30,6 +30,6 @@ export const createRecipe = formValues => async dispatch => {
 export const editRecipe = (id, formValues) => async dispatch => {
     const response = await recipes.patch(`/recipes/${id}`, formValues);
   
-    dispatch({ type: EDIT_STREAM, payload: response.data });
+    dispatch({ type: EDIT_RECIPE, payload: response.data });
     history.push("/");
   };

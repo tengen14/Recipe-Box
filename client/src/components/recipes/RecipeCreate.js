@@ -4,7 +4,7 @@ import { createRecipe } from "../../actions";
 import Modal from "../Modal";
 
 class RecipeCreate extends React.Component {
-  newSubmit = formValues => {
+  newSubmission = formValues => {
     this.props.createRecipe(formValues);
   };
 
