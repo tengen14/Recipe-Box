@@ -13,8 +13,11 @@ const Modal = (props) => {
         className="ui standard modal visible active"
       >
         <div className="header">{props.title}</div>
-        <div className="content"><RecipeForm /></div>
-        <div className="actions">yes no</div>
+        <div className="content">
+          <RecipeForm 
+            newSubmit={props.newSubmit}
+          />
+        </div>
       </div>
     </div>,
     document.querySelector("#modal")
