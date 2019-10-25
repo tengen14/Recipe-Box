@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React from "react";
 import { connect } from "react-redux";
 import { getRecipe, editRecipe } from "../../actions";
@@ -8,12 +9,20 @@ class RecipeEdit extends React.Component {
     this.props.getRecipe(this.props.match.params.id);
   }
 
-  editSubmission = formValues => {
+  onSubmit = formValues => {
     this.props.editRecipe(this.props.match.params.id, formValues);
   };
 
   render() {
-    return <div>RECIPE EDIT</div>;
+    return (
+      <div>
+        <Modal 
+          type="Edit" 
+          initialValues={_.pick(this.props.selectedRecipe, "title", "ingredients", "directions")}
+          onSubmit={this.onSubmit} 
+        />
+      </div>
+    );
   }
 }
 
@@ -22,6 +31,6 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 export default connect(
-    mapStateToProps,
-    { getRecipe, editRecipe }
+  mapStateToProps,
+  { getRecipe, editRecipe }
 )(RecipeEdit);

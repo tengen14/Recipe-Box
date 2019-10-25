@@ -61,25 +61,21 @@ class RecipeForm extends React.Component {
   };
 
   onSubmit = formValues => {
-    this.props.newSubmission(formValues);
+    this.props.onSubmit(formValues);
   };
 
   render() {
     return (
       <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
         <label>Recipe Title</label>
-
         <Field
           name="title"
           component={this.renderField}
           type="text"
           placeholder="Recipe Title"
         />
-
         <FieldArray name="ingredients" component={this.renderIngredients} />
-
         <FieldArray name="directions" component={this.renderDirections} />
-
         <button className="ui button primary">Submit</button>
       </form>
     );

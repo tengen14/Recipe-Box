@@ -4,14 +4,17 @@ import { createRecipe } from "../../actions";
 import Modal from "../Modal";
 
 class RecipeCreate extends React.Component {
-  newSubmission = formValues => {
+  onSubmit = formValues => {
     this.props.createRecipe(formValues);
   };
 
   render() {
     return (
       <div>
-        <Modal title="Add Recipe" newSubmission={this.newSubmission} />
+        <Modal
+          type="Add"
+          onSubmit={this.onSubmit} 
+        />
       </div>
     );
   }

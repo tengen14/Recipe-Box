@@ -24,12 +24,12 @@ export const createRecipe = formValues => async dispatch => {
     const response = await recipes.post("/recipes", { ...formValues });
 
     dispatch({ type: CREATE_RECIPE, payload: response.data });
-    history.push("/");
+    history.goBack();
 }
 
 export const editRecipe = (id, formValues) => async dispatch => {
     const response = await recipes.patch(`/recipes/${id}`, formValues);
   
     dispatch({ type: EDIT_RECIPE, payload: response.data });
-    history.push("/");
+    history.goBack();
   };
