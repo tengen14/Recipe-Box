@@ -46,6 +46,9 @@ class RecipeShow extends React.Component {
             <Link to={`/recipes/edit/${this.props.selectedRecipe.id}`}>
               <i className="fas fa-edit"></i>
             </Link>
+            <Link to={`/recipes/delete/${this.props.selectedRecipe.id}`}>
+              <i className="far fa-trash-alt"></i>
+            </Link>
           </div>
           <div id="recipe-body">
             <ul>{this.listIngredients()}</ul>
