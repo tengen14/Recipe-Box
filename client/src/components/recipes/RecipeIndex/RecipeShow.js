@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import RecipeDelete from "../RecipeDelete";
 import "../../../index";
 
 class RecipeShow extends React.Component {
@@ -36,6 +37,11 @@ class RecipeShow extends React.Component {
       );
     }
   };
+
+  deleteRoute = () => {
+    return <div><RecipeDelete /></div>;
+  };
+
 
   render() {
     if (this.props.selectedRecipe) {
