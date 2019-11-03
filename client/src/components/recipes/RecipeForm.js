@@ -2,61 +2,77 @@ import React from "react";
 import { Field, FieldArray, reduxForm } from "redux-form";
 
 class RecipeForm extends React.Component {
-  renderField = field => {
+  renderField = ({ input, label, type, meta: { touched, error } }) => {
     return (
-      <div className="input-row">
-        <input {...field.input} type="text" />
-        {field.meta.touched && field.meta.error && (
-          <span className="error">{field.meta.error}</span>
-        )}
+      <div>
+        <label>{label}</label>
+        <div>
+          <input {...input} type={type} placeholder={label} />
+          {touched && error && <span>{error}</span>}
+        </div>
       </div>
     );
   };
 
-  renderIngredients = ({ fields }) => {
+  renderIngredients = ({ fields, meta: { error } }) => {
     return (
-      <div className="custom-field-array-container">
-        {fields.map((code, index) => (
-          <div key={index} className="field-array-item">
-            <Field
-              name={code}
-              type="text"
-              component={this.renderField}
-              autoFocus
-            />
-            <button type="button" onClick={() => fields.remove(index)}>
+      <ul className="custom-field-array-container">
+        <li>
+          <button type="button" onClick={() => fields.push()}>
+            Add {!fields.length ? "Ingredient(s)" : "Another Ingredient"}
+          </button>
+        </li>
+        {fields.map((ingredient, index) => (
+          <li key={index} className="field-array-item">
+            <button
+              type="button"
+              title="Remove Ingredient"
+              onClick={() => fields.remove(index)}
+            >
               &times;
             </button>
-          </div>
+            <Field
+              name={ingredient}
+              type="text"
+              component={this.renderField}
+              label={`Ingredient #${index + 1}`}
+              require
+            />
+          </li>
         ))}
-        <button type="button" onClick={() => fields.push()}>
-          Add {!fields.length ? "Ingredient(s)" : "Another Ingredient"}
-        </button>
-      </div>
+        {error && <li className="error">{error}</li>}
+      </ul>
     );
   };
 
-  renderDirections = ({ fields }) => {
+  renderDirections = ({ fields, meta: { error } }) => {
     return (
-      <div className="custom-field-array-container">
-        {fields.map((code, index) => (
-          <div key={index} className="field-array-item">
-            <Field
-              name={code}
-              type="text"
-              component={this.renderField}
-              label={`Discount Code #${index + 1}`}
-              autoFocus
-            />
-            <button type="button" onClick={() => fields.remove(index)}>
+      <ul className="custom-field-array-container">
+        <li>
+          <button type="button" onClick={() => fields.push()}>
+            Add {!fields.length ? "Direction(s)" : "Another Direction"}
+          </button>
+        </li>
+        {fields.map((direction, index) => (
+          <li key={index} className="field-array-item">
+            <button
+              type="button"
+              title="Remove Direction"
+              onClick={() => fields.remove(index)}
+            >
               &times;
             </button>
-          </div>
+            <Field
+              name={direction}
+              type="text"
+              component={this.renderField}
+              label={`Direction #${index + 1}`}
+              require
+            />
+          </li>
         ))}
-        <button type="button" onClick={() => fields.push()}>
-          Add {!fields.length ? "Direction(s)" : "Another Direction"}
-        </button>
-      </div>
+        {error && <li className="error">{error}</li>}
+      </ul>
     );
   };
 
@@ -82,56 +98,48 @@ class RecipeForm extends React.Component {
   }
 }
 
-// const validate = values => {
-//   const errors = {};
-//   if (!values.clubName) {
-//     errors.clubName = "Required";
-//   }
-//   if (!values.members || !values.members.length) {
-//     errors.members = { _error: "At least one member must be entered" };
-//   } else {
-//     const membersArrayErrors = [];
-//     values.members.forEach((member, memberIndex) => {
-//       const memberErrors = {};
-//       if (!member || !member.firstName) {
-//         memberErrors.firstName = "Required";
-//         membersArrayErrors[memberIndex] = memberErrors;
-//       }
-//       if (!member || !member.lastName) {
-//         memberErrors.lastName = "Required";
-//         membersArrayErrors[memberIndex] = memberErrors;
-//       }
-//       if (member && member.hobbies && member.hobbies.length) {
-//         const hobbyArrayErrors = [];
-//         member.hobbies.forEach((hobby, hobbyIndex) => {
-//           if (!hobby || !hobby.length) {
-//             hobbyArrayErrors[hobbyIndex] = "Required";
-//           }
-//         });
-//         if (hobbyArrayErrors.length) {
-//           memberErrors.hobbies = hobbyArrayErrors;
-//           membersArrayErrors[memberIndex] = memberErrors;
-//         }
-//         if (member.hobbies.length > 5) {
-//           if (!memberErrors.hobbies) {
-//             memberErrors.hobbies = [];
-//           }
-//           memberErrors.hobbies._error = "No more than five hobbies allowed";
-//           membersArrayErrors[memberIndex] = memberErrors;
-//         }
-//       }
-//     });
-//     if (membersArrayErrors.length) {
-//       errors.members = membersArrayErrors;
-//     }
-//   }
-//   return errors;
-// };
+const validate = values => {
+  const errors = {};
+
+  if (!values.title) {
+    errors.title = "Required";
+  }
+
+  if (!values.ingredients || !values.ingredients.length) {
+    errors.ingredients = { _error: "At least one ingredient must be entered" };
+  } else {
+    const ingredientArrayErrors = [];
+    values.ingredients.forEach((ingredient, index) => {
+      if (!ingredient || !ingredient.length) {
+        ingredientArrayErrors[index] = "Required";
+      }
+    });
+    if (ingredientArrayErrors.length) {
+      errors.ingredients = ingredientArrayErrors;
+    }
+  }
+
+  if (!values.directions || !values.directions.length) {
+    errors.directions = { _error: "At least one direction must be entered" };
+  } else {
+    const directionArrayErrors = [];
+    values.directions.forEach((direction, index) => {
+      if (!direction || !direction.length) {
+        directionArrayErrors[index] = "Required";
+      }
+    });
+    if (directionArrayErrors.length) {
+      errors.directions = directionArrayErrors;
+    }
+  }
+
+  return errors;
+};
 
 export default reduxForm({
-  form: "recipeForm"
-  //   validated
+  form: "recipeForm",
+  validate
 })(RecipeForm);
 
 // dry up functions
-// validate form
+
