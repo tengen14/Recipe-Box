@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import RecipeDelete from "../RecipeDelete";
 import "../../../index";
 
 class RecipeShow extends React.Component {
@@ -28,20 +27,15 @@ class RecipeShow extends React.Component {
     }
   };
 
-  editRoute = selectedRecipe => {
-    if (this.props.selectedRecipe) {
-      return (
-        <Link to={`/recipes/edit/${selectedRecipe.id}`}>
-          <i className="fas fa-edit"></i>
+  newRecipe = () => {
+    return (
+      <h2 id="recipe-add">
+        <Link to="/recipes/new">
+          <i className="fas fa-plus"></i>
         </Link>
-      );
-    }
+      </h2>
+    );
   };
-
-  deleteRoute = () => {
-    return <div><RecipeDelete /></div>;
-  };
-
 
   render() {
     if (this.props.selectedRecipe) {
@@ -60,15 +54,15 @@ class RecipeShow extends React.Component {
             <ul>{this.listIngredients()}</ul>
             <ol>{this.listDirections()}</ol>
           </div>
-          <h2 id="recipe-add">
-            <Link to="/recipes/new">
-              <i className="fas fa-plus"></i>
-            </Link>
-          </h2>
+          {this.newRecipe()}
         </div>
       );
     } else {
-      return <div>Loading...</div>;
+      return (
+        <div className="ui container">
+          {this.newRecipe()}
+        </div>
+      );
     }
   }
 }

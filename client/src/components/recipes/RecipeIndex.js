@@ -1,7 +1,5 @@
-import _ from "lodash";
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import RecipeList from "./RecipeIndex/RecipeList";
 import RecipeShow from "./RecipeIndex/RecipeShow";
 import { getRecipes } from "../../actions";

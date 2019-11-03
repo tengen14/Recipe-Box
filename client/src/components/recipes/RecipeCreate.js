@@ -1,9 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import { createRecipe } from "../../actions";
+import { getRecipe, createRecipe } from "../../actions";
 import Modal from "../Modal";
+import history from "../../history";
 
 class RecipeCreate extends React.Component {
+  componentWillUnmount() {
+    history.push("/");
+  }
+
   onSubmit = formValues => {
     this.props.createRecipe(formValues);
   };
@@ -22,5 +27,5 @@ class RecipeCreate extends React.Component {
 
 export default connect(
   null,
-  { createRecipe }
+  { getRecipe, createRecipe }
 )(RecipeCreate);

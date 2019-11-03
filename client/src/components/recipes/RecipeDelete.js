@@ -11,7 +11,7 @@ class RecipeDelete extends React.Component {
 
   confirmDelete = () => {
     let choice = window.confirm(
-      `Are you sure you wish to delete ${this.props.selectedRecipe.title} from the Recipe Box?`
+      `Are you sure you wish to delete "${this.props.selectedRecipe.title}" from the Recipe Box?`
     );
     if (choice === true) {
       this.props.deleteRecipe(this.props.match.params.id);
