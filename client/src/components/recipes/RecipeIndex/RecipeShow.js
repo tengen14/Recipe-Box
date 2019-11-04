@@ -30,7 +30,7 @@ class RecipeShow extends React.Component {
   newRecipe = () => {
     return (
       <h2 id="recipe-add">
-        <Link to="/recipes/new">
+        <Link to="/recipes/new" title="Add Recipe">
           <i className="fas fa-plus"></i>
         </Link>
       </h2>
@@ -43,12 +43,14 @@ class RecipeShow extends React.Component {
         <div id="recipe-desc" className="ui container">
           <div id="recipe-title">
             <h2>{this.listTitle()}</h2>
-            <Link to={`/recipes/edit/${this.props.selectedRecipe.id}`}>
-              <i className="fas fa-edit"></i>
-            </Link>
-            <Link to={`/recipes/delete/${this.props.selectedRecipe.id}`}>
-              <i className="far fa-trash-alt"></i>
-            </Link>
+            <div id="title-buttons">
+              <Link to={`/recipes/edit/${this.props.selectedRecipe.id}`} title="Edit Recipe">
+                <i className="fas fa-edit"></i>
+              </Link>
+              <Link to={`/recipes/delete/${this.props.selectedRecipe.id}`} title="Delete Recipe">
+                <i className="far fa-trash-alt"></i>
+              </Link>
+            </div>
           </div>
           <div id="recipe-body">
             <ul>{this.listIngredients()}</ul>

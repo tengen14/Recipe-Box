@@ -1,34 +1,132 @@
-#recipe-list {
-    background-color: pink;
-    height: 100px;
-    overflow: scroll;
+body {
+  background-color: #fbe8a6;
 }
 
 li {
-    font-size: 30px;
-    line-height: 50px;
+  font-size: 30px;
+  line-height: 50px;
+  color: black;
 }
 
-/* Recipe Description Styling  */
+/* RECIPE BOX TITLE */
+
+h1 {
+  font-size: 5em;
+  font-family: "McLaren", cursive;
+  text-align: center;
+  margin: 0;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+i.fas.fa-hamburger {
+  color: black;
+  font-size: 6rem;
+}
+
+/* RECIPE LIST  */
+
+#recipe-list {
+  background-color: #b4dfe5;
+  height: 150px;
+  overflow: scroll;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+#recipe-list > ul {
+  position: relative;
+  padding: 0px;
+  margin: 0px;
+}
+
+a > li {
+  list-style: none;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: oblique;
+  padding-left: 25px;
+}
+
+a:nth-child(even) > li {
+  background-color: #d2fdff;
+}
+
+/* RECIPE SHOW  */
 
 #recipe-desc {
-    position: relative;
-    top: 50px;
+  position: relative;
+  top: 50px;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin-bottom: 30px;
 }
 
-#recipe-title {
-    background-color: blueviolet;
-    margin: 0;
-}
 #recipe-body {
-    background-color: palevioletred;
-    height: 300px;
-    overflow: scroll;
+  background-color: #f4976c;
+  height: 300px;
+  overflow: scroll;
 }
+
 #recipe-add {
-    background-color: blueviolet;
+  background-color: #303c6c;
+  margin: 0;
+  height: 40px;
+  border-bottom-left-radius: 7.8px;
+  border-bottom-right-radius: 7.8px;
 }
 
 i {
-    color: black;
+  color: #c2bad1;
+  padding: 0px 7.5px 0px 7.5px;
 }
+
+i:hover {
+  color: white;
+}
+
+#recipe-title {
+  background-color: #303c6c;
+  margin: 0;
+  border-top-left-radius: 7.8px;
+  border-top-right-radius: 7.8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#recipe-title > h2 {
+  color: white;
+  font-size: 36px;
+  padding-left: 25px;
+  padding-top: 6px;
+}
+
+#title-buttons {
+  position: relative;
+  padding-top: 17px;
+  padding-right: 30px;
+  font-size: 2em;
+}
+
+
+i.fas.fa-plus {
+  position: relative;
+  padding-left: 25px;
+  top: 7px;
+  font-size: 2.2rem;
+}
+
+#recipe-body > ul > li {
+  font-size: 28px;
+  line-height: 1.75;
+}
+
+
+#recipe-body > ol > li {
+  font-size: 24px;
+  line-height: 1.5;
+  padding: 30px 10px 25px 0px;
+  text-indent: 25px;
+}
+
+/* Maybe add media queries */

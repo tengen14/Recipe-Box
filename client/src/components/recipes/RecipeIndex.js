@@ -13,6 +13,9 @@ class RecipeIndex extends React.Component {
   render() {
     return (
       <div>
+        <h1>
+          Recipe Box <i className="fas fa-hamburger"></i>
+        </h1>
         <RecipeList recipes={this.props.recipes} />
         <RecipeShow selectedRecipe={this.props.selectedRecipe} />
       </div>
