@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import RecipeForm from "../components/recipes/RecipeForm";
 import history from "../history";
+import "../form.css";
 
 const Modal = props => {
   return ReactDOM.createPortal(
