@@ -38,6 +38,14 @@ class RecipeShow extends React.Component {
   };
 
   render() {
+    const styleVanillaAddRecipe = {
+      borderBottom: '2px solid black',
+      borderRight: '2px solid black',
+      borderLeft: '2px solid black',
+      borderBottomRightRadius: '10.1px',
+      borderBottomLeftRadius: '10.1px'
+  }
+
     if (this.props.selectedRecipe) {
       return (
         <div id="recipe-desc" className="ui container">
@@ -61,11 +69,14 @@ class RecipeShow extends React.Component {
       );
     } else {
       return (
-        <div className="ui container">
+        <div className="ui container" style={styleVanillaAddRecipe}>
           {this.newRecipe()}
         </div>
       );
     }
+
+   
+
   }
 }
 

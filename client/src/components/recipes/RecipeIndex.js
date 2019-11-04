@@ -16,7 +16,7 @@ class RecipeIndex extends React.Component {
         <h1>
           Recipe Box <i className="fas fa-hamburger"></i>
         </h1>
-        <RecipeList recipes={this.props.recipes} />
+        <RecipeList recipes={this.props.recipes} selectedRecipe={this.props.selectedRecipe} />
         <RecipeShow selectedRecipe={this.props.selectedRecipe} />
       </div>
     );

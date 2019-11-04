@@ -18,20 +18,28 @@ class RecipeList extends React.Component {
   };
 
   render() {
-    return (
-      <div id="recipe-list" className="ui container">
-        <ul>{this.renderList()}</ul>
-      </div>
-    );
+    const styleVanillaRecipeList = {
+      borderBottomRightRadius: '0px',
+      borderBottomLeftRadius: '0px'
+    }
+
+    if (!this.props.selectedRecipe) {
+      return (
+        <div id="recipe-list" className="ui container" style={styleVanillaRecipeList}>
+          <ul>{this.renderList()}</ul>
+        </div>
+      );
+    } else {
+      return (
+        <div id="recipe-list" className="ui container">
+          <ul>{this.renderList()}</ul>
+        </div>
+      );
+    }
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return {  };
-};
-// what should I do with mapStateToProps, it's already functioning in RecipeIndex
-
 export default connect(
-  mapStateToProps,
+  null,
   { getRecipe }
 )(RecipeList);
