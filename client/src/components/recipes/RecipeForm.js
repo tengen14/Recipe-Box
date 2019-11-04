@@ -1,5 +1,6 @@
 import React from "react";
 import { Field, FieldArray, reduxForm } from "redux-form";
+import history from "../../history";
 
 class RecipeForm extends React.Component {
   renderField = ({ input, label, type, meta: { touched, error } }) => {
@@ -36,7 +37,6 @@ class RecipeForm extends React.Component {
               type="text"
               component={this.renderField}
               label={`Ingredient #${index + 1}`}
-              require
             />
           </li>
         ))}
@@ -67,7 +67,6 @@ class RecipeForm extends React.Component {
               type="text"
               component={this.renderField}
               label={`Direction #${index + 1}`}
-              require
             />
           </li>
         ))}
@@ -82,18 +81,21 @@ class RecipeForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
-        <label>Recipe Title</label>
-        <Field
-          name="title"
-          component={this.renderField}
-          type="text"
-          placeholder="Recipe Title"
-        />
-        <FieldArray name="ingredients" component={this.renderIngredients} />
-        <FieldArray name="directions" component={this.renderDirections} />
-        <button className="ui button primary">Submit</button>
-      </form>
+      <div>
+        <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
+          <label>Recipe Title</label>
+          <Field
+            name="title"
+            component={this.renderField}
+            type="text"
+            placeholder="Recipe Title"
+          />
+          <FieldArray name="ingredients" component={this.renderIngredients} />
+          <FieldArray name="directions" component={this.renderDirections} />
+          <button className="ui button primary">Submit</button>
+        </form>
+        <button className="ui button negative" onClick={() => history.goBack()} >Cancel</button>
+      </div>
     );
   }
 }
@@ -142,4 +144,3 @@ export default reduxForm({
 })(RecipeForm);
 
 // dry up functions
-
