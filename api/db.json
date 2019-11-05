@@ -139,6 +139,24 @@
         "asdfasdfasf"
       ],
       "id": 9
+    },
+    {
+      "directions": [
+        null
+      ],
+      "title": "adsfadsfadsf",
+      "ingredients": [
+        "asdfasdfsdf"
+      ],
+      "id": 10
+    },
+    {
+      "directions": [],
+      "ingredients": [
+        "asdfasdf"
+      ],
+      "title": "asdfadsf",
+      "id": 11
     }
   ]
 }

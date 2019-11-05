@@ -13,49 +13,51 @@ class RecipeForm extends React.Component {
     );
   };
 
-  // renderIngredients = ({ fields, meta: { error } }) => {
-  //   return (
-  //     <ul className="custom-field-array-container">
-  //       <li>
-  //         <button type="button" onClick={() => fields.push()}>
-  //           Add {!fields.length ? "Ingredient(s)" : "Another Ingredient"}
-  //         </button>
-  //       </li>
-  //       {fields.map((ingredient, index) => (
-  //         <li key={index} className="field-array-item">
-  //           <button
-  //             type="button"
-  //             title="Remove Ingredient"
-  //             onClick={() => fields.remove(index)}
-  //           >
-  //             <i class="fas fa-trash-alt"></i>
-  //           </button>
-  //           <Field
-  //             name={ingredient}
-  //             type="text"
-  //             component={this.renderField}
-  //             label={`Ingredient #${index + 1}`}
-  //           />
-  //         </li>
-  //       ))}
-  //       {error && <li className="error">{error}</li>}
-  //     </ul>
-  //   );
-  // };
+  renderTextArea = ({ input, label, meta: { touched, error, warning }}) => (
+    <div>
+        <label>{label}</label>
+        <div>
+            <textarea {...input} placeholder={label} rows="10" cols="40"/>
+            {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+        </div>
+    </div>
+);
+
+  renderDirections = ({ fields, meta: { error } }) => {
+    return (
+      <ul className="custom-field-array-container">
+        {fields.map((direction, index) => (
+          <li key={index} className="direction-form-value field-array-item">
+            <Field
+              name={direction}
+              type="text"
+              component={this.renderTextArea}
+              label={`Direction #${index + 1}`}
+            />
+            <i
+              title="Remove Direction"
+              onClick={() => fields.remove(index)}
+              className="fas fa-trash-alt"
+            ></i>
+          </li>
+        ))}
+        <div className="add-buttons">
+          <li>
+            <button type="button" onClick={() => fields.push()}>
+              Add {!fields.length ? "Direction(s)" : "Another Direction"}
+            </button>
+          </li>
+          {error && <li className="error">{error}</li>}
+        </div>
+      </ul>
+    );
+  };
 
   renderIngredients = ({ fields, meta: { error } }) => {
     return (
       <ul className="custom-field-array-container">
-        <li>
-          <button type="button" onClick={() => fields.push()}>
-            Add {!fields.length ? "Ingredient(s)" : "Another Ingredient"}
-          </button>
-        </li>
         {fields.map((ingredient, index) => (
-          <li
-            key={index}
-            className="ingredient-form-value field-array-item"
-          >
+          <li key={index} className="ingredient-form-value field-array-item">
             <Field
               name={ingredient}
               type="text"
@@ -69,7 +71,14 @@ class RecipeForm extends React.Component {
             ></i>
           </li>
         ))}
-        {error && <li className="error">{error}</li>}
+        <div className="add-buttons">
+          <li>
+            <button type="button" onClick={() => fields.push()}>
+              Add {!fields.length ? "Ingredient(s)" : "Another Ingredient"}
+            </button>
+          </li>
+          {error && <li className="error">{error}</li>}
+        </div>
       </ul>
     );
   };
@@ -92,6 +101,7 @@ class RecipeForm extends React.Component {
             />
           </div>
           <FieldArray name="ingredients" component={this.renderIngredients} />
+          <FieldArray name="directions" component={this.renderDirections} />
           <div id="form-buttons">
             <button className="ui button primary big">Submit</button>
             <button
