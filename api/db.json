@@ -56,7 +56,6 @@
       "id": 3,
       "title": "Banana Bread",
       "ingredients": [
-        "Nonstick vegetable oil spray",
         "1½ cups all-purpose flour",
         "1¼ teaspoons baking soda",
         "¾ teaspoon kosher salt",
@@ -66,7 +65,8 @@
         "2 large eggs",
         "4 large very ripe bananas, mashed (about 1½ cups)",
         "½ cup chopped bittersweet or semisweet chocolate (optional)",
-        "½ cup chopped walnuts (optional)"
+        "½ cup chopped walnuts (optional)",
+        "Non-Stick vegetable oil spray"
       ],
       "directions": [
         "Preheat oven to 350°. Lightly coat 8½x4½ loaf pan with nonstick spray and line with parchment paper, leaving a generous overhang on long sides. Whisk flour, baking soda, and salt in a medium bowl.",
@@ -95,22 +95,6 @@
       ]
     },
     {
-      "ingredients": [
-        "asdfas",
-        "asdfasd",
-        "asdfasdfasd",
-        "asdfasdfasdf",
-        "asdfasdf",
-        "adsdfsdf"
-      ],
-      "directions": [
-        "Silly boy",
-        "dff"
-      ],
-      "title": "asdfasdf",
-      "id": 5
-    },
-    {
       "directions": [
         "asdfasf"
       ],
@@ -119,80 +103,6 @@
       ],
       "title": "THANE ENGEN",
       "id": 7
-    },
-    {
-      "title": "asdfadsf",
-      "ingredients": [
-        "asdfasdfasdf"
-      ],
-      "directions": [
-        "asdfasdfadsf"
-      ],
-      "id": 8
-    },
-    {
-      "directions": [
-        null
-      ],
-      "title": "adsfadsfadsf",
-      "ingredients": [
-        "asdfasdfsdf"
-      ],
-      "id": 10
-    },
-    {
-      "directions": [],
-      "ingredients": [
-        "asdfasdf"
-      ],
-      "title": "asdfadsf",
-      "id": 11
-    },
-    {
-      "directions": [
-        "asdfasdfasfdasdf"
-      ],
-      "title": "asdfasdfasdfadsf",
-      "ingredients": [
-        "asdfasdfadsfsd"
-      ],
-      "id": 12
-    },
-    {
-      "directions": [
-        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadgaklasdf\nasdgas\nfasdf\nasdf\nasdfaassssssssssdfa afdfasdf fdsf sdfdsf d fdfdfdfsassd"
-      ],
-      "title": "asdfadsf",
-      "ingredients": [
-        "adsf"
-      ],
-      "id": 13
-    },
-    {
-      "directions": [
-        "asdfasdfasdf"
-      ],
-      "ingredients": [
-        "asdfasdf",
-        "asdfasdf",
-        "asdfasdf",
-        "asdfasdf"
-      ],
-      "title": "asdfasdf",
-      "id": 14
-    },
-    {
-      "directions": [
-        "asdfasdfasdf"
-      ],
-      "ingredients": [
-        "asdfasdf",
-        "asdfasdf",
-        "asdfasdf",
-        "asdfasdf"
-      ],
-      "title": "asdfasdf",
-      "id": 15
     },
     {
       "title": "test",

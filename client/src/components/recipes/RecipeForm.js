@@ -13,10 +13,10 @@ class RecipeForm extends React.Component {
     );
   };
 
-  renderTextArea = ({ input, label, type, meta: { touched, error } }) => (
-    <div>
-      <label>{label}</label>
-      <div>
+  renderTextArea = ({ input, label, type, meta: { touched, error } }) => {
+    return (
+      <React.Fragment>
+        <label>{label}</label>
         <textarea
           {...input}
           type={type}
@@ -25,9 +25,9 @@ class RecipeForm extends React.Component {
           cols="40"
         />
         {touched && error && <span>{error}</span>}
-      </div>
-    </div>
-  );
+      </React.Fragment>
+    );
+  };
 
   renderIngredients = ({ fields, meta: { error } }) => {
     return (
@@ -110,6 +110,7 @@ class RecipeForm extends React.Component {
             />
           </div>
           <FieldArray name="ingredients" component={this.renderIngredients} />
+          <hr />
           <FieldArray name="directions" component={this.renderDirections} />
           <div id="form-buttons">
             <button className="ui button primary big">Submit</button>

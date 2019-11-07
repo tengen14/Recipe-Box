@@ -23,7 +23,7 @@ div.ui.standard.modal.visible.active {
 
 .custom-field-array-container {
   list-style: none;
-  padding-top: 25px;
+  padding-top: 40px;
 }
 
 form {
@@ -91,23 +91,49 @@ li > span {
 
 textarea {
   font-size: 18px;
-  width: 50%;
-  max-width: 50%;
-  min-width: 50%;
+  max-height: 140px;
   min-height: 60px;
+  height: 80px;
+  max-width: 65%;
+  min-width: 65%;
+  width: 65%;
+  resize: vertical;
+}
+
+.direction-form-value {
+  display: grid;
+  grid-template-rows: auto 55px;
+  grid-template-columns: auto;
+  padding-top: 70px;
+  width: 100%;
 }
 
 #direction-delete-button {
   cursor: pointer;
   background-color: rgba(255, 0, 0, 0.75);
   border-radius: 10px;
-  width: 18%;
-  transform: scale(0.8);
+  width: 130px;
+  transform: scale(0.7);
+  grid-column: 1;
+  grid-row: 2;
 }
 
 #direction-delete-button > span {
   color: white;
-  padding: 0px;
+  padding-left: 0px;
+}
+
+.direction-form-value > span {
+  grid-column: 1;
+  grid-row: 2;
+  padding-left: 140px;
+}
+
+hr {
+  position: relative;
+  top: 30px;
+  width: 95%;
+  opacity: 70%;
 }
 
 /* button styles  */
@@ -129,13 +155,14 @@ li.error {
   justify-content: space-around;
 }
 
-
-
-
-
 /* MEDIA QUERIES */
 @media (max-width: 576px) {
+
   span {
     font-size: 18px;
+  }
+
+  #direction-delete-button > span {
+    font-size: 20px;
   }
 }
