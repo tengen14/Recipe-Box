@@ -13,45 +13,21 @@ class RecipeForm extends React.Component {
     );
   };
 
-  renderTextArea = ({ input, label, meta: { touched, error, warning }}) => (
+  renderTextArea = ({ input, label, type, meta: { touched, error } }) => (
     <div>
-        <label>{label}</label>
-        <div>
-            <textarea {...input} placeholder={label} rows="10" cols="40"/>
-            {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
-        </div>
+      <label>{label}</label>
+      <div>
+        <textarea
+          {...input}
+          type={type}
+          placeholder={label}
+          rows="10"
+          cols="40"
+        />
+        {touched && error && <span>{error}</span>}
+      </div>
     </div>
-);
-
-  renderDirections = ({ fields, meta: { error } }) => {
-    return (
-      <ul className="custom-field-array-container">
-        {fields.map((direction, index) => (
-          <li key={index} className="direction-form-value field-array-item">
-            <Field
-              name={direction}
-              type="text"
-              component={this.renderTextArea}
-              label={`Direction #${index + 1}`}
-            />
-            <i
-              title="Remove Direction"
-              onClick={() => fields.remove(index)}
-              className="fas fa-trash-alt"
-            ></i>
-          </li>
-        ))}
-        <div className="add-buttons">
-          <li>
-            <button type="button" onClick={() => fields.push()}>
-              Add {!fields.length ? "Direction(s)" : "Another Direction"}
-            </button>
-          </li>
-          {error && <li className="error">{error}</li>}
-        </div>
-      </ul>
-    );
-  };
+  );
 
   renderIngredients = ({ fields, meta: { error } }) => {
     return (
@@ -75,6 +51,39 @@ class RecipeForm extends React.Component {
           <li>
             <button type="button" onClick={() => fields.push()}>
               Add {!fields.length ? "Ingredient(s)" : "Another Ingredient"}
+            </button>
+          </li>
+          {error && <li className="error">{error}</li>}
+        </div>
+      </ul>
+    );
+  };
+
+  renderDirections = ({ fields, meta: { error } }) => {
+    return (
+      <ul className="custom-field-array-container">
+        {fields.map((direction, index) => (
+          <li key={index} className="direction-form-value field-array-item">
+            <Field
+              name={direction}
+              type="text"
+              component={this.renderTextArea}
+              label={`Direction #${index + 1}`}
+            />
+            <div
+              id="direction-delete-button"
+              onClick={() => fields.remove(index)}
+              title="Remove Direction"
+            >
+              <i className="fas fa-trash-alt"></i>
+              <span>Delete</span>
+            </div>
+          </li>
+        ))}
+        <div className="add-buttons">
+          <li>
+            <button type="button" onClick={() => fields.push()}>
+              Add {!fields.length ? "Direction(s)" : "Another Direction"}
             </button>
           </li>
           {error && <li className="error">{error}</li>}
