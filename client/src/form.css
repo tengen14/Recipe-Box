@@ -23,7 +23,7 @@ div.ui.standard.modal.visible.active {
 
 .custom-field-array-container {
   list-style: none;
-  padding-top: 40px;
+  padding-top: 30px;
 }
 
 form {
@@ -46,6 +46,7 @@ label {
 #title-form {
   display: flex;
   padding-left: 40px;
+  margin-bottom: -50px;
 }
 
 #title-form > input {
@@ -94,9 +95,7 @@ textarea {
   max-height: 140px;
   min-height: 60px;
   height: 80px;
-  max-width: 65%;
-  min-width: 65%;
-  width: 65%;
+  width: 70%;
   resize: vertical;
 }
 
@@ -143,16 +142,18 @@ hr {
   padding-top: 25px;
 }
 
+.add-buttons > li > button {
+  font-size: 24px;
+}
+
 li.error {
-  font-size: 18px;
-  font-weight: bold;
-  padding-left: 20px;
-  opacity: 75%;
+  display: none;
 }
 
 #form-buttons {
   display: flex;
   justify-content: space-around;
+  padding-top: 30px;
 }
 
 /* MEDIA QUERIES */

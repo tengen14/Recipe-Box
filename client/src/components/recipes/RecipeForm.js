@@ -114,12 +114,12 @@ class RecipeForm extends React.Component {
           <FieldArray name="directions" component={this.renderDirections} />
           <div id="form-buttons">
             <button className="ui button primary big">Submit</button>
-            <button
+            <span
               className="ui button negative big"
               onClick={() => history.goBack()}
             >
               Cancel
-            </button>
+            </span>
           </div>
         </form>
       </div>
