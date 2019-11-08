@@ -4,6 +4,14 @@ import history from "../../history";
 
 class RecipeForm extends React.Component {
   renderField = ({ input, label, type, meta: { touched, error } }) => {
+    const titleMaxCharLength = () => {
+      const titleForm = document.querySelector("input[name='title']");
+      console.log(titleForm);
+      if (titleForm !== null) {
+        titleForm.setAttribute("maxlength", "20");
+      }
+    };
+    titleMaxCharLength();
     return (
       <React.Fragment>
         <label>{label}</label>
@@ -102,7 +110,6 @@ class RecipeForm extends React.Component {
         <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
           <div id="title-form">
             <Field
-              id="title-form"
               name="title"
               component={this.renderField}
               type="text"
