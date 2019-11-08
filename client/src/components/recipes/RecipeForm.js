@@ -6,9 +6,8 @@ class RecipeForm extends React.Component {
   renderField = ({ input, label, type, meta: { touched, error } }) => {
     const titleMaxCharLength = () => {
       const titleForm = document.querySelector("input[name='title']");
-      console.log(titleForm);
-      if (titleForm !== null) {
-        titleForm.setAttribute("maxlength", "20");
+      if (titleForm) {
+        titleForm.setAttribute("maxlength", "40");
       }
     };
     titleMaxCharLength();

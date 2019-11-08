@@ -7,7 +7,7 @@ class RecipeShow extends React.Component {
 
   listTitle = () => {
     if (this.props.selectedRecipe) {
-      return <div>{this.props.selectedRecipe.title}</div>;
+      return <React.Fragment>{this.props.selectedRecipe.title}</React.Fragment>;
     }
   };
 

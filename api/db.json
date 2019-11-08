@@ -56,6 +56,7 @@
       "id": 3,
       "title": "Banana Bread",
       "ingredients": [
+        "Nonstick vegetable oil spray",
         "1½ cups all-purpose flour",
         "1¼ teaspoons baking soda",
         "¾ teaspoon kosher salt",
@@ -65,8 +66,7 @@
         "2 large eggs",
         "4 large very ripe bananas, mashed (about 1½ cups)",
         "½ cup chopped bittersweet or semisweet chocolate (optional)",
-        "½ cup chopped walnuts (optional)",
-        "Non-Stick vegetable oil spray"
+        "½ cup chopped walnuts (optional)"
       ],
       "directions": [
         "Preheat oven to 350°. Lightly coat 8½x4½ loaf pan with nonstick spray and line with parchment paper, leaving a generous overhang on long sides. Whisk flour, baking soda, and salt in a medium bowl.",
@@ -95,94 +95,44 @@
       ]
     },
     {
-      "directions": [
-        "asdfasf"
-      ],
+      "title": "afdasdfasd",
       "ingredients": [
-        "asdfasdfsdf"
+        "asdfasdfasdf"
       ],
-      "title": "THANE ENGEN",
+      "directions": [
+        "adsfasdfasdfd"
+      ],
+      "id": 5
+    },
+    {
+      "title": "asdfasdfasdfasdfasdfasdfasdfasdfsadfsadf",
+      "ingredients": [
+        "asdfasdfasdfasf"
+      ],
+      "directions": [
+        "asdfasdfasdf"
+      ],
+      "id": 6
+    },
+    {
+      "title": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
+      "ingredients": [
+        "asfdasdfasdf"
+      ],
+      "directions": [
+        "asdfasdfasdf"
+      ],
       "id": 7
     },
     {
-      "title": "test",
+      "title": "Pork Chorizo tacos with sour cream ",
       "ingredients": [
-        "adsfasdf",
-        "asdfasdfsd",
-        "asdfasdfasdf",
-        "asdfasdfasdf"
+        "asdfasfd"
       ],
       "directions": [
-        "asdfasdfasdfasfdasdf",
-        "asdfasdfasdfasdf",
-        "asdfasdfasdfasdfasdfasdf",
-        "asdfasdfasdfasdfasdfasdfasdfasdfasdf"
+        "adsfasfds"
       ],
-      "id": 16
-    },
-    {
-      "title": "asdfadsfasdf",
-      "ingredients": [
-        "fasdfasdfasdf"
-      ],
-      "directions": [
-        "asdfasdfasdfasdf",
-        "asdfasdfasdfasdf",
-        "adfasdfffffffffffffffffff\nwewe\nwewe\n"
-      ],
-      "id": 17
-    },
-    {
-      "title": "willyssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssskllllllllllllllllllllllllllllllllllllllllllfffffffffffffffirjdsklfgjslkdfgjsdklgjsdklfgjsdkflgjsdlfgsldkfgsdlfkg",
-      "ingredients": [
-        "gsdfgsdfgsdfhhkfhgsdklfgsdlfkgjsdklfgjsdlñfgjsdklgjdslkñfgjsdklfgjsdklñfgjsdlkfgjskdjskdfghksdfghksdjfghsdkjfghskdfghskdfjghsdfkjgdsfjjkgjkddjkdsfhfdhjhgkjsfghdjfkghdkjfghsdkjghsdjkfghdsfksdkjfghsdjkfghsdkjghskdjghsdfkg"
-      ],
-      "directions": [
-        "weeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
-      ],
-      "id": 18
-    },
-    {
-      "title": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
-      "ingredients": [
-        "4 avocados diced",
-        "13 partridges in a pear tree, chopped and then dic"
-      ],
-      "directions": [
-        "asdfasdfasdfs"
-      ],
-      "id": 19
-    },
-    {
-      "title": "asdfasdfasdf",
-      "ingredients": [
-        "asdfasdfasdfasdf"
-      ],
-      "directions": [
-        "asdfasdfasdfasdfasdfasdfasdfadsf"
-      ],
-      "id": 20
-    },
-    {
-      "title": "asdfffffffffffffffff",
-      "ingredients": [
-        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadf",
-        "asdfasdf"
-      ],
-      "directions": [
-        "adsfasdfasdfasdf"
-      ],
-      "id": 21
-    },
-    {
-      "title": "WWWWWWWWWWWWWWWWWWWW",
-      "ingredients": [
-        "asdfasdfasdf"
-      ],
-      "directions": [
-        "asdfasdfasdf"
-      ],
-      "id": 22
+      "id": 8
     }
   ]
 }

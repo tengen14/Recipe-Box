@@ -99,6 +99,8 @@ i:hover {
   font-size: 36px;
   padding-left: 25px;
   padding-top: 6px;
+  max-width: 75%;
+  overflow: hidden;
 }
 
 #title-buttons {
