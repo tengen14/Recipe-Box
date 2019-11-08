@@ -3,30 +3,6 @@ import { Link } from "react-router-dom";
 import "../../../index";
 
 class RecipeShow extends React.Component {
-  componentDidMount() {}
-
-  listTitle = () => {
-    if (this.props.selectedRecipe) {
-      return <React.Fragment>{this.props.selectedRecipe.title}</React.Fragment>;
-    }
-  };
-
-  listIngredients = () => {
-    if (this.props.selectedRecipe) {
-      return this.props.selectedRecipe.ingredients.map((ingredient, i) => {
-        return <li key={i}>{ingredient}</li>;
-      });
-    }
-  };
-
-  listDirections = () => {
-    if (this.props.selectedRecipe) {
-      return this.props.selectedRecipe.directions.map((direction, i) => {
-        return <li key={i}>{direction}</li>;
-      });
-    }
-  };
-
   newRecipe = () => {
     return (
       <h2 id="recipe-add">
@@ -46,11 +22,23 @@ class RecipeShow extends React.Component {
       borderBottomLeftRadius: '10.1px'
   }
 
-    if (this.props.selectedRecipe) {
+    const selectedRecipe = this.props.selectedRecipe;
+    const valuesObject = {};
+  
+
+    if (selectedRecipe) {
+      valuesObject.title = <React.Fragment>{selectedRecipe.title}</React.Fragment>;
+      valuesObject.ingredients = selectedRecipe.ingredients.map((ingredient, i) => {
+        return <li key={i}>{ingredient}</li>;
+      });
+      valuesObject.directions = selectedRecipe.directions.map((direction, i) => {
+        return <li key={i}>{direction}</li>;
+      });
+
       return (
         <div id="recipe-desc" className="ui container">
           <div id="recipe-title">
-            <h2>{this.listTitle()}</h2>
+            <h2>{valuesObject.title}</h2>
             <div id="title-buttons">
               <Link to={`/recipes/edit/${this.props.selectedRecipe.id}`} title="Edit Recipe">
                 <i className="fas fa-edit"></i>
@@ -61,8 +49,8 @@ class RecipeShow extends React.Component {
             </div>
           </div>
           <div id="recipe-body">
-            <ul>{this.listIngredients()}</ul>
-            <ol>{this.listDirections()}</ol>
+            <ul>{valuesObject.ingredients}</ul>
+            <ol>{valuesObject.directions}</ol>
           </div>
           {this.newRecipe()}
         </div>
@@ -82,4 +70,3 @@ class RecipeShow extends React.Component {
 
 export default RecipeShow;
 
-// DRY up the code (refactor functions)

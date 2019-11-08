@@ -134,7 +134,7 @@ class RecipeForm extends React.Component {
 }
 
 const validate = values => {
-  const errors = {};
+  const errors = {}; 
 
   if (!values.title) {
     errors.title = "! Required";
@@ -176,4 +176,3 @@ export default reduxForm({
   validate
 })(RecipeForm);
 
-// dry up functions
