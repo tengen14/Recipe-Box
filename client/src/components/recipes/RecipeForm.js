@@ -7,7 +7,7 @@ class RecipeForm extends React.Component {
     const titleMaxCharLength = () => {
       const titleForm = document.querySelector("input[name='title']");
       if (titleForm) {
-        titleForm.setAttribute("maxlength", "40");
+        titleForm.setAttribute("maxlength", "60");
       }
     };
     titleMaxCharLength();

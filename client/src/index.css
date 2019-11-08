@@ -121,6 +121,7 @@ i.fas.fa-plus {
 #recipe-body > ul > li {
   font-size: 28px;
   line-height: 1.75;
+  overflow-wrap: break-word;
 }
 
 
@@ -129,6 +130,7 @@ i.fas.fa-plus {
   line-height: 1.5;
   padding: 30px 10px 25px 0px;
   text-indent: 25px;
+  overflow-wrap: break-word;
 }
 
 /* Maybe add media queries */
