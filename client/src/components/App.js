@@ -5,7 +5,7 @@ import RecipeCreate from "./recipes/RecipeCreate";
 import RecipeEdit from "./recipes/RecipeEdit";
 import RecipeDelete from "./recipes/RecipeDelete";
 import history from "../history";
-import "../index.css";
+import "../styles/index.css";
 
 class App extends React.Component {
   render() {
@@ -26,3 +26,15 @@ class App extends React.Component {
 }
 
 export default App;
+
+
+// DRY validate functions in RecipeForm.js ?
+// DRY Field functions in RecipeForm.js ?
+// Add comments detailing workflow
+// Seed data
+// Edit readme
+// proofread application 
+// redirect to new recipe after its' creation
+// doublecheck redux state and mapstatetoprops functions
+// reformat css 
+// reformat file locations
