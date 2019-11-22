@@ -110,7 +110,6 @@ i:hover {
   font-size: 2em;
 }
 
-
 i.fas.fa-plus {
   position: relative;
   padding-left: 25px;
@@ -124,7 +123,6 @@ i.fas.fa-plus {
   overflow-wrap: break-word;
 }
 
-
 #recipe-body > ol > li {
   font-size: 24px;
   line-height: 1.5;
@@ -133,4 +131,17 @@ i.fas.fa-plus {
   overflow-wrap: break-word;
 }
 
-/* Maybe add media queries */
+/* MEDIA QUERIES */
+
+@media (max-width: 414px) {
+  h1,
+  i.fas.fa-hamburger {
+    font-size: 4rem;
+  }
+  #recipe-title > h2 {
+    width: 65%;
+  }
+  #title-buttons {
+    padding-right: 5px;
+  }
+}

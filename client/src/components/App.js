@@ -36,5 +36,4 @@ export default App;
 // proofread application 
 // redirect to new recipe after its' creation
 // doublecheck redux state and mapstatetoprops functions
-// reformat css 
-// reformat file locations
+
