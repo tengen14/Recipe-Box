@@ -14,8 +14,7 @@ class RecipeDelete extends React.Component {
       `Are you sure you wish to delete "${this.props.selectedRecipe.title}" from the Recipe Box?`
     );
     if (choice === true) {
-      this.props.deleteRecipe(this.props.match.params.id);
-      history.push("/");
+      this.props.deleteRecipe(this.props.match.params.id).then(history.push("/"));
     } else {
       history.goBack();
     }

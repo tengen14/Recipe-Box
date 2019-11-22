@@ -34,6 +34,5 @@ export default App;
 // Seed data
 // Edit readme
 // proofread application 
-// redirect to new recipe after its' creation
 // doublecheck redux state and mapstatetoprops functions
 
