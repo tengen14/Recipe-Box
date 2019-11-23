@@ -38,4 +38,5 @@ export const deleteRecipe = id => async dispatch => {
   await recipes.delete(`/recipes/${id}`);
 
   dispatch({ type: DELETE_RECIPE, payload: id });
+  history.push("/");
 };

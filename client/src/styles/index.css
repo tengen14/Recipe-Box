@@ -133,7 +133,7 @@ i.fas.fa-plus {
 
 /* MEDIA QUERIES */
 
-@media (max-width: 414px) {
+@media (max-width: 496px) {
   h1,
   i.fas.fa-hamburger {
     font-size: 4rem;

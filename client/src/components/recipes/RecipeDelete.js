@@ -14,7 +14,7 @@ class RecipeDelete extends React.Component {
       `Are you sure you wish to delete "${this.props.selectedRecipe.title}" from the Recipe Box?`
     );
     if (choice === true) {
-      this.props.deleteRecipe(this.props.match.params.id).then(history.push("/"));
+      this.props.deleteRecipe(this.props.match.params.id);
     } else {
       history.goBack();
     }
@@ -29,7 +29,6 @@ const mapStateToProps = (state, ownProps) => {
   return { selectedRecipe: state.recipes[ownProps.match.params.id] };
 };
 
-export default connect(
-  mapStateToProps,
-  { getRecipe, deleteRecipe }
-)(RecipeDelete);
+export default connect(mapStateToProps, { getRecipe, deleteRecipe })(
+  RecipeDelete
+);
