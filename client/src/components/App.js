@@ -27,12 +27,9 @@ class App extends React.Component {
 
 export default App;
 
-
-// DRY validate functions in RecipeForm.js ?
-// DRY Field functions in RecipeForm.js ?
 // Add comments detailing workflow
 // Seed data
 // Edit readme
 // proofread application 
-// doublecheck redux state and mapstatetoprops functions
+
 

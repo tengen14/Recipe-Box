@@ -20,22 +20,6 @@ class RecipeForm extends React.Component {
     );
   };
 
-  renderTextArea = ({ input, label, type, meta: { touched, error } }) => {
-    return (
-      <React.Fragment>
-        <label>{label}</label>
-        <textarea
-          {...input}
-          type={type}
-          placeholder={label}
-          rows="10"
-          cols="40"
-        />
-        {touched && error && <span>{error}</span>}
-      </React.Fragment>
-    );
-  };
-
   renderIngredients = ({ fields, meta: { error } }) => {
     return (
       <ul className="custom-field-array-container">
@@ -63,6 +47,22 @@ class RecipeForm extends React.Component {
           {error && <li className="error">{error}</li>}
         </div>
       </ul>
+    );
+  };
+
+  renderTextArea = ({ input, label, type, meta: { touched, error } }) => {
+    return (
+      <React.Fragment>
+        <label>{label}</label>
+        <textarea
+          {...input}
+          type={type}
+          placeholder={label}
+          rows="10"
+          cols="40"
+        />
+        {touched && error && <span>{error}</span>}
+      </React.Fragment>
     );
   };
 
@@ -134,7 +134,7 @@ class RecipeForm extends React.Component {
 }
 
 const validate = values => {
-  const errors = {}; 
+  const errors = {};
 
   if (!values.title) {
     errors.title = "! Required";
@@ -175,4 +175,3 @@ export default reduxForm({
   form: "recipeForm",
   validate
 })(RecipeForm);
-
