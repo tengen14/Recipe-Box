@@ -62,9 +62,6 @@ class RecipeShow extends React.Component {
         </div>
       );
     }
-
-   
-
   }
 }
 
