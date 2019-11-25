@@ -28,7 +28,8 @@ i.fas.fa-hamburger {
 
 #recipe-list {
   background-color: #b4dfe5;
-  height: 150px;
+  max-height: 150px;
+  min-height: 50px;
   overflow: scroll;
   border: 2px solid black;
   border-radius: 10px;
