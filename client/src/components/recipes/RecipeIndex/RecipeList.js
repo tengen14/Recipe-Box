@@ -5,6 +5,7 @@ import { getRecipe } from "../../../actions";
 import "../../../index";
 
 class RecipeList extends React.Component {
+  // List recipe titles (each links to separate show component)
   renderList = () => {
     return this.props.recipes.map(recipe => {
       return (
@@ -23,6 +24,7 @@ class RecipeList extends React.Component {
       borderBottomLeftRadius: '0px'
     }
 
+    // Style differs when no recipe is selected
     if (!this.props.selectedRecipe) {
       return (
         <div id="recipe-list" className="ui container" style={styleVanillaRecipeList}>

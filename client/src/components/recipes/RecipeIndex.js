@@ -23,6 +23,7 @@ class RecipeIndex extends React.Component {
   }
 }
 
+// Props defined from Reducer State Object and passed to component
 const mapStateToProps = (state, ownProps) => {
   return {
     recipes: Object.values(state.recipes),

@@ -9,6 +9,8 @@ class RecipeEdit extends React.Component {
     this.props.getRecipe(this.props.match.params.id);
   }
 
+  // onSubmit is passed down as prop to Modal.js then RecipeForm.js
+  // formValues is equal to the field values when data is submitted in RecipeForm.js
   onSubmit = formValues => {
     this.props.editRecipe(this.props.match.params.id, formValues);
   };
@@ -18,6 +20,7 @@ class RecipeEdit extends React.Component {
       <div>
         <Modal 
           type="Edit" 
+          // 'pick' desired data from selected recipe to fill formValues
           initialValues={_.pick(this.props.selectedRecipe, "title", "ingredients", "directions")}
           onSubmit={this.onSubmit} 
         />

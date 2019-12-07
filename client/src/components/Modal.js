@@ -16,6 +16,7 @@ const Modal = props => {
       >
         <div className="header">{`${props.type} Recipe`}</div>
         <div className="content">
+          {/* Props inherited and passed down from REST components and further passed down to RecipeForm.js */}
           <RecipeForm
             type={props.type}
             initialValues={props.initialValues}

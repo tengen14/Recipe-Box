@@ -8,6 +8,8 @@ import history from "../history";
 import "../styles/index.css";
 
 const App = () => {
+  
+  // DEFINE ROUTES FOR COMPONENTS
   return (
     <div>
       <Router history={history}>
@@ -25,7 +27,3 @@ const App = () => {
 
 export default App;
 
-// Add comments detailing workflow
-// Seed data
-// Edit readme
-// proofread application

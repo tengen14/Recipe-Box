@@ -1,9 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getRecipe, createRecipe } from "../../actions";
+import { createRecipe } from "../../actions";
 import Modal from "../Modal";
 
 class RecipeCreate extends React.Component {
+  // onSubmit is passed down as prop to Modal.js then RecipeForm.js
+  // formValues is equal to the field values when data is submitted in RecipeForm.js
   onSubmit = formValues => {
     this.props.createRecipe(formValues);
   };
@@ -22,5 +24,5 @@ class RecipeCreate extends React.Component {
 
 export default connect(
   null,
-  { getRecipe, createRecipe }
+  { createRecipe }
 )(RecipeCreate);

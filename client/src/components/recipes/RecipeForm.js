@@ -4,6 +4,7 @@ import history from "../../history";
 
 class RecipeForm extends React.Component {
   renderField = ({ input, label, type, meta: { touched, error } }) => {
+    // Define maxchar length for 'title' field
     const titleMaxCharLength = () => {
       const titleForm = document.querySelector("input[name='title']");
       if (titleForm) {

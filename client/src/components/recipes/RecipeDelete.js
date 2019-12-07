@@ -10,9 +10,11 @@ class RecipeDelete extends React.Component {
   }
 
   confirmDelete = () => {
+    // Prompt user if they would like to delete 'selected recipe'
     let choice = window.confirm(
       `Are you sure you wish to delete "${this.props.selectedRecipe.title}" from the Recipe Box?`
     );
+    // Execute 'delete' action if true or 'go back' if false
     if (choice === true) {
       this.props.deleteRecipe(this.props.match.params.id);
     } else {
@@ -20,6 +22,7 @@ class RecipeDelete extends React.Component {
     }
   };
 
+  // Nothing new is rendered
   render() {
     return null;
   }

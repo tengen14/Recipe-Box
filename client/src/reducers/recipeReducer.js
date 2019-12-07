@@ -7,6 +7,8 @@ import {
   DELETE_RECIPE
 } from "../actions/types";
 
+
+// ACTION PAYLOADS HANDLED IN REDUCER AND UPDATED IN STATE 
 export default (state = {}, action) => {
   switch (action.type) {
     case GET_RECIPES:

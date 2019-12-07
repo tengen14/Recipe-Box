@@ -8,6 +8,9 @@ import {
   DELETE_RECIPE
 } from "./types";
 
+
+// ACTIONS HANDLE API REQUESTS (RESTful CONVENTIONS)
+
 export const getRecipes = () => async dispatch => {
   const response = await recipes.get("/recipes");
 
