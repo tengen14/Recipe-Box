@@ -7,7 +7,6 @@ import "../styles/form.css";
 const Modal = props => {
   return ReactDOM.createPortal(
     <div
-      onClick={() => history.goBack()}
       className="ui dimmer modals visible active"
     >
       <div
