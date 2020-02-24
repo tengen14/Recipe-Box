@@ -1,4 +1,4 @@
-![](./recipe-box.png)
+<img src="./recipe-box.png" width="300" height="300"/>
 
 <i>See live project at thane-engen.com/recipe-box</i>
 
