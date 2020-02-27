@@ -6,7 +6,7 @@
 
 # Recipe Box
 
-A list of recipes that you can view, add to, edit, or delete.
+A list of recipes that you can view, add to, edit, or delete.<br />
 REST API is written completely on the front end using JSON-Server.
 
 Technologies used:
