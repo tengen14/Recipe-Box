@@ -1,4 +1,4 @@
-<img src="./recipe-box.png" width="400" height="400"/>
+<img src="./recipe-box.png" width="350" height="350"/>
 
 <i>See live project at <a href="http://thane-engen.com/recipe-box">www.thane-engen.com/recipe-box</a></i>
 
