@@ -21,13 +21,7 @@ Technologies used:
 
 ***
 
-## Process
-
-.........
-
-***
-
-## Challenges
+## Summary
 
 This project was one that I spent a lot of time tailoring to try and perfect. There were multiple occasions in which I felt completely lost but after dozens of hours of work, I think that it works great!
 
