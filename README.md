@@ -15,6 +15,7 @@ Technologies used:
 * CSS3, Bootstrap
 * Javascript (ES6), ReactJS, React/Redux
 * JSON-Server (for data storage and API requests)
+* Axios
 * Npm, Git
 
 ***
