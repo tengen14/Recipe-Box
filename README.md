@@ -1,6 +1,6 @@
-<img src="./recipe-box.png" width="350" height="350"/>
+<img src="./recipe-box.png" width="300" height="300"/>
 
-<i>See live project at <a href="http://thane-engen.com/recipe-box">www.thane-engen.com/recipe-box</a></i>
+<i>See project live at <a href="http://thane-engen.com/recipe-box">www.thane-engen.com/recipe-box</a></i>
 
 ***
 
